@@ -17,7 +17,7 @@ router.post('/add',async(req,res) => {
     res.redirect('/');
 })
 
-router.post('/turn/:id', async(req,res) =>{
+router.get('/turn/:id', async(req,res) =>{
     const {id} = req.params;
     const task = await Task.findById(id);
     task.status = !task.status;
