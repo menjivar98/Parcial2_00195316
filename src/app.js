@@ -21,7 +21,7 @@ app.set('view engine','ejs');
 
 //middlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({extend: false}));
+app.use(express.urlencoded({useNewUrlParser: true}));
 
 //routes
 app.use('/',indexRoutes);
