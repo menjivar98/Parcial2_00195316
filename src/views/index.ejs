@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <form action="/add" method="POST">
@@ -12,32 +12,37 @@
                             <div class="form-group">
                                 <textarea name="description" cols="80" class="form-control" placeholder="Calificacion" ></textarea>
                             </div>
+                            <div class="form-group">
+
+                            </div>
                             <button type="submit" class="btn btn-primary btn-block">Agregar</button>
                         </form>
                     </div>
                 </div>
             </div>
              <!--Lista-->
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <table class="table table-bordered">
                     <thead>
                         <th>N°</th>
-                        <th>Titulo</th>
-                        <th>Calificacion</th>
+                        <th>Restaurantes</th>
                         <th>Familiar</th>
+                        <th>Calificacion</th>
                         <th>Opciones</th>
                     </thead>
+                    
+                    
                     <tbody>
                         <% for(var i = 0; i < tasks.length;i++) {%>
                             <tr>
                                 <td> <%= tasks[i]._id %></td>
                                 <td> <%= tasks[i].title %></td>
-                                <td> <%= tasks[i].description%> </td>
-                                <td> <%= tasks[i].status%></td>
+                                <td> <%= tasks[i].status%> </td>
+                                <td> <%= tasks[i].description%> </td> 
                                 <td>
-                                    <a href="/turn/<%= tasks[i]._id%>" class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'%>">+18</a>
-                                    <a href="/delete/<%= tasks[i]._id%>" class="btn btn-danger">Borrar</a>
-                                    <a href="/edit/<%= tasks[i]._id%>" class="btn btn-primary">Editar</a>
+                                    <a href="/turn/<%= tasks[i]._id%>" class="btn <%= tasks[i].status ?  'btn-dark' : 'btn-success'%>">+18</a>
+                                    <a href="/delete/<%= tasks[i]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
+                                    <a href="/edit/<%= tasks[i]._id%>" class="btn btn-primary"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                         <%}%>    
